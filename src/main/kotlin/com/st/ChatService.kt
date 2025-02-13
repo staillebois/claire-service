@@ -65,6 +65,7 @@ class ChatService(
         val docs = store.search(
             EmbeddingSearchRequest.builder()
                 .queryEmbedding(queryEmbedded)
+                .maxResults(10)
                 .build()
         )
         val relevant = docs.matches()
