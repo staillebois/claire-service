@@ -13,6 +13,7 @@ dependencies {
     implementation 'io.quarkiverse.langchain4j:quarkus-langchain4j-ollama:0.24.0'
     implementation 'dev.langchain4j:langchain4j-elasticsearch:1.0.0-beta1'
     implementation 'dev.langchain4j:langchain4j:1.0.0-beta1'
+    implementation 'dev.langchain4j:langchain4j-ollama:1.0.0-beta1'
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation 'io.quarkus:quarkus-kotlin'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
