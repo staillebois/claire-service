@@ -5,8 +5,8 @@ import io.smallrye.mutiny.Multi
 import jakarta.enterprise.context.SessionScoped
 
 @SessionScoped
-@RegisterAiService(streamingChatLanguageModelSupplier = StreamingChatModelProvider::class,
-    retrievalAugmentor = ClaireRetrievalAugmentor::class)
+@RegisterAiService(retrievalAugmentor = ClaireRetrievalAugmentor::class,
+    chatMemoryProviderSupplier = ClaireMemoryProviderSupplier::class)
 interface AIService {
     fun chat(userMessage: String): Multi<String>
 }

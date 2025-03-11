@@ -193,6 +193,7 @@ class ChatService(
     }
 
     fun createChatModel(): ChatLanguageModel {
+        LOGGER.info("Creating Chat Model on $ollamaUrl with model $ollamaModel")
         return OllamaChatModel.builder()
             .baseUrl(ollamaUrl)
             .modelName(ollamaModel)

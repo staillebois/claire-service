@@ -35,6 +35,8 @@ nb-configuration.xml
 # Local environment
 .env
 
+.kotlin
+
 # Plugin directory
 /.quarkus/cli/plugins/
 # TLS Certificates

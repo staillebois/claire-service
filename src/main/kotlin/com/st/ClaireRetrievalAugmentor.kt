@@ -8,21 +8,21 @@ import dev.langchain4j.rag.content.injector.DefaultContentInjector
 import dev.langchain4j.rag.content.retriever.ContentRetriever
 import dev.langchain4j.rag.content.retriever.EmbeddingStoreContentRetriever
 import dev.langchain4j.store.embedding.elasticsearch.ElasticsearchEmbeddingStore
+import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.inject.Default
 import jakarta.inject.Inject
-import jakarta.inject.Singleton
 import org.apache.http.HttpHost
 import org.eclipse.microprofile.config.inject.ConfigProperty
 import org.elasticsearch.client.RestClient
 import java.util.function.Supplier
 import org.jboss.logging.Logger
 
-@Singleton
+@ApplicationScoped
 class ClaireRetrievalAugmentor : Supplier<RetrievalAugmentor> {
 
     @Inject
     @field: Default
-    lateinit var embeddingModel: EmbeddingModel;
+    lateinit var embeddingModel: EmbeddingModel
 
     @ConfigProperty(name = "elastic.url")
     var elasticUrl: String = ""
@@ -45,7 +45,7 @@ class ClaireRetrievalAugmentor : Supplier<RetrievalAugmentor> {
             .embeddingStore(store)
             .embeddingModel(embeddingModel)
             .maxResults(3)
-            .minScore(0.55)
+            .minScore(0.75)
             .build()
 
         val contentInjector: ContentInjector = DefaultContentInjector.builder()
